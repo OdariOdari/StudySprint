@@ -32,12 +32,16 @@ html, body {
   color: var(--color-text);
   letter-spacing: 0.011em;
   transition: var(--transition);
+  margin: 0;
+  padding: 0;
 }
 
 /* Top Navigation */
 #topnav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 68px;
   padding: 0 2vw;
   display: flex;
@@ -54,7 +58,7 @@ html, body {
   font-family: var(--font-title);
   font-size: 2.4rem;
   color: var(--color-accent);
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   font-weight: 700;
   text-shadow: var(--color-shadow2);
   transition: var(--transition);
@@ -111,8 +115,12 @@ html, body {
   box-shadow: 0 4px 19px var(--color-shadow2);
   transform: scale(1.08);
 }
-.theme-icon { display: none;}
-.theme-icon.show { display: inline; }
+.theme-icon {
+  display: none;
+}
+.theme-icon.show {
+  display: inline;
+}
 
 /* Side Menu */
 #side-menu-backdrop {
@@ -125,7 +133,8 @@ html, body {
 }
 #side-menu {
   position: fixed;
-  top: 0; right: 0;
+  top: 0;
+  right: 0;
   height: 100%;
   width: 315px;
   max-width: 92vw;
@@ -149,7 +158,7 @@ html, body {
   font-size: 1.23rem;
   color: var(--color-accent);
   border-bottom: 1.5px solid #f9a82635;
-  letter-spacing: .03em;
+  letter-spacing: 0.03em;
   font-weight: 700;
 }
 #sessions-list {
@@ -158,6 +167,31 @@ html, body {
   padding: 12px 30px 30px 30px;
   margin-top: 3px;
 }
+
+/* Menu Links in Side Panel */
+.menu-link {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin: 6px 0;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--transition);
+  background: transparent;
+}
+
+.menu-link:hover, .menu-link:focus-visible {
+  background: rgba(63, 114, 175, 0.1);
+  color: var(--color-accent);
+  outline: none;
+}
+
+[data-theme='dark'] .menu-link:hover, [data-theme='dark'] .menu-link:focus-visible {
+  background: rgba(249, 168, 38, 0.1);
+}
+
 .session-entry {
   font-family: var(--font-main);
   font-size: 1.07rem;
@@ -166,7 +200,7 @@ html, body {
   color: var(--color-text);
   display: flex;
   flex-direction: column;
-  animation: fadein .1s cubic-bezier(.56,.06,.22,1.07);
+  animation: fadein 0.1s cubic-bezier(0.56, 0.06, 0.22, 1.07);
 }
 .session-entry:last-child {
   border-bottom: none;
@@ -177,22 +211,25 @@ html, body {
 .session-title {
   font-weight: 600;
   font-size: 1.10em;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 .session-duration {
-  font-size: .99em;
+  font-size: 0.99em;
   color: var(--color-accent2);
 }
-.session-timestamp{
-  opacity:.84;
-  font-size:0.96em;
-  color:var(--color-secondary);
+.session-timestamp {
+  opacity: 0.84;
+  font-size: 0.96em;
+  color: var(--color-secondary);
 }
 
-@keyframes fadein { from {opacity:0} to {opacity:1} }
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 /* Bottom Clear Button in Side Panel */
 .side-action-btn {
@@ -207,7 +244,7 @@ html, body {
   cursor: pointer;
   font-family: var(--font-main);
   font-weight: bold;
-  letter-spacing: .01em;
+  letter-spacing: 0.01em;
   transition: background 0.18s, color 0.14s, transform 0.12s;
   box-shadow: 0 1.5px 7px var(--color-shadow2);
   position: static;
@@ -220,8 +257,15 @@ html, body {
 }
 
 @media (max-width: 600px) {
-  #side-menu {width: 99vw; max-width: 99vw; padding: 0;}
-  #side-menu-header, #sessions-list {padding-left: 11px; padding-right: 11px;}
+  #side-menu {
+    width: 99vw;
+    max-width: 99vw;
+    padding: 0;
+  }
+  #side-menu-header, #sessions-list {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
   .side-action-btn {
     margin: 12px 10px 18px 10px;
     font-size: 0.97em;
@@ -252,12 +296,18 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  animation: popin .24s cubic-bezier(.56,.06,.22,1.07);
+  animation: popin 0.24s cubic-bezier(0.56, 0.06, 0.22, 1.07);
   transition: var(--transition);
 }
 @keyframes popin {
-  from {opacity:0;transform: translateY(36px) scale(.93);}
-  to {opacity:1;transform: translateY(0) scale(1);}
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 #study-modal label {
   font-family: var(--font-title);
@@ -266,7 +316,7 @@ html, body {
   margin-bottom: 10px;
   display: block;
   text-align: center;
-  letter-spacing:.03em;
+  letter-spacing: 0.03em;
 }
 #study-input {
   font-size: 1.07rem;
@@ -301,7 +351,7 @@ html, body {
   cursor: pointer;
   letter-spacing: 0.05em;
   box-shadow: 0 3px 15px var(--color-shadow2);
-  margin-top:7px;
+  margin-top: 7px;
   transition: var(--transition);
 }
 .modal-btn:hover, .modal-btn:focus-visible {
@@ -318,6 +368,9 @@ main {
   min-height: 100vh;
   padding-top: 85px;
   transition: var(--transition);
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #timer-container {
@@ -325,6 +378,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-bottom: 2rem;
 }
 
 #study-title {
@@ -370,6 +424,8 @@ main {
   gap: 12px;
   margin: 0 auto;
   margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .timer-btn {
   font-size: 1.09rem;
@@ -383,11 +439,11 @@ main {
   cursor: pointer;
   min-width: 96px;
   box-shadow: 0 1px 5px var(--color-shadow2);
-  letter-spacing:.03em;
+  letter-spacing: 0.03em;
   transition: var(--transition);
 }
 .timer-btn:disabled {
-  opacity: .43;
+  opacity: 0.43;
   background: #aaa;
   color: #e0e0e0;
   cursor: not-allowed;
@@ -397,4 +453,65 @@ main {
   color: #222831;
   filter: brightness(1.05);
   outline: none;
+}
+
+/* Fullscreen Button Styling */
+#fullscreen-btn {
+  font-size: 1.09rem;
+  font-family: var(--font-main);
+  padding: 8px 22px;
+  border-radius: 24px;
+  background: var(--color-accent);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 96px;
+  box-shadow: 0 1px 5px var(--color-shadow2);
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+}
+#fullscreen-btn:hover, #fullscreen-btn:focus-visible {
+  background: var(--color-accent2);
+  color: #222831;
+  filter: brightness(1.05);
+  outline: none;
+}
+
+/* Custom styles for new sections */
+#progress-tracking, #gamification, #sessions-section {
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+#study-chart {
+  width: 100%;
+  height: 300px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  #timer-container, #progress-tracking, #gamification, #sessions-section {
+    width: 95%;
+  }
+  
+  #timer {
+    font-size: 2.5rem;
+    padding: 20px 40px;
+  }
+  
+  #study-title {
+    font-size: 1.2rem;
+    padding: 8px 20px;
+  }
+}
+
+/* Fix for Fullscreen Mode */
+@media (max-width: 600px) and (orientation: portrait) {
+  #timer.fullscreen {
+    font-size: 2.8rem;
+    padding: 20px 30px;
+  }
 }
